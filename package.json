@@ -1,0 +1,17 @@
+{
+  "name": "MVC_project",
+  "version": "1.0.0",
+  "description": "This is my project",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "author": "Fakhri Imanov",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-less": "^4.0.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-concat": "^2.6.1"
+  }
+}
