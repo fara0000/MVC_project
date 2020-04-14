@@ -53,11 +53,12 @@ input_age.setAttribute('placeholder','age:');
 container_input.appendChild(input_age);
 
 const button = document.createElement('div');
+button.setAttribute('onclick', 'sendName()')
 button.setAttribute('id','mess_send');
 button.setAttribute('class','btn');
 button.innerHTML = 'Submit';
 container_input.appendChild(button)
-//2
+
 const formTag_1 = document.createElement('form');
 formTag_1.setAttribute('id','container_input')
 container_first.appendChild(formTag_1);
@@ -70,8 +71,9 @@ formTag_1.appendChild(findDiv);
 
 const textarea = document.createElement('textarea');
 textarea.setAttribute('id', 'message');
-textarea.name = 'message';
-textarea.placeholder = 'Name Surname Age';
+textarea.setAttribute('name', 'message')
+textarea.setAttribute('placeholder','Name Surname Age');
+textarea.setAttribute('readonly', 'readonly');
 formTag_1.appendChild(textarea);
 //3
 const div_1 = document.createElement('div');
@@ -128,7 +130,6 @@ btnDiv_1.setAttribute('class', 'btn');
 btnDiv_1.textContent = 'Find';
 formTag_2.appendChild(btnDiv_1);
 
-//second-page_second-form-------------------------------
 const formTag_3 = document.createElement('form');
 formTag_3.setAttribute('id','container_input')
 div_1.appendChild(formTag_3);
@@ -141,25 +142,38 @@ formTag_3.appendChild(findDiv_1);
 
 const textarea_1 = document.createElement('textarea');
 textarea_1.setAttribute('id', 'message');
-textarea_1.name = 'message';
-textarea_1.placeholder = 'Name Surname true/false';
+textarea_1.setAttribute('name', 'message');
+textarea_1.setAttribute ('placeholder','Name Surname true/false') ;
+textarea_1.setAttribute('readonly', 'readonly');
 formTag_3.appendChild(textarea_1);
 
-//---------------------------------------------------------
-// function sendName() {
-//     let sName = document.getElementById('name').value;  
-//     let sSurname = document.getElementById('surname').value;
-//     let sAge = document.getElementById('age').value;
-
-//     let concatt = sName + ' ' + sSurname + ' ' + sAge ;
-//     let oldValue = document.getElementById('message').value;
-//     let newValue = concatt + oldValue;
-//     document.getElementById('message').innerHTML = newValue;
-// }
 
 
+function sendName() {
+    let people = [];
+    let Name = document.getElementById('name').value;
+    let Surname = document.getElementById('surname').value;
+    let Age = document.getElementById('age').value;
+    
+    let list = {
+        name: Name,
+        surname: Surname,
+        age: Age, 
+    }
 
-
+    people.unshift(list);
+    
+    for (let i = 0; i < people.length; i++) {
+        let oldlist = document.getElementById('message');
+        
+        for (i = 0; i < people.length; i++) {
+            var newlist = document.getElementById('message').innerHTML;
+            newlist =  newlist + people[i].name + " " + people[i].surname  + " " +  people[i].age + '\n';
+        }
+        
+        oldlist.innerHTML =  newlist;
+    }
+}
 
 
 
